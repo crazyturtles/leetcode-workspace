@@ -1,0 +1,7 @@
+{
+  "name": "leetcode-workspace",
+  "version": "1.0.0",
+  "scripts": {
+    "new": "lib\\new-problem.bat"
+  }
+}
