@@ -1,12 +1,13 @@
 ├───lib
 │   ├───new-problem.bat
-│   ├───new-problem.ps1
 │   ├───template.js
+│   ├───test-problem.bat
 │   ├───test.bat
-│   ├───test.ps1
 ├───problems
 │   ├───palindrome-number
 │   │   ├───test-cases
+│   │   │   ├───input1.txt
+│   │   │   ├───output1.txt
 │   │   ├───solution.js
 │   │   ├───test.bat
 ├───.gitattributes
