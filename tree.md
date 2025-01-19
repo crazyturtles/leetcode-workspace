@@ -26,6 +26,9 @@
 │   │   ├───solution.js
 │   │   ├───test.bat
 ├───.gitattributes
+├───.gitignore
+├───biome.json
+├───package-lock.json
 ├───package.json
 ├───README.md
 ├───tree.md
