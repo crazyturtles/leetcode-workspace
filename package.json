@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "new": "lib\\new-problem.bat",
-    "test": "lib\\test-problem.bat"
+    "test": "lib\\test-problem.bat",
+    "format": "biome format --write .",
+    "lint": "biome lint ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
   }
 }
