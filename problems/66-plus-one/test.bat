@@ -22,8 +22,14 @@ for %%f in (test-cases\input*.txt) do (
     echo Actual Output:
     
     set start_time=!time!
-    node solution.js < !input! > temp_output 2>nul
+    node -e "const start = process.memoryUsage().heapUsed; require('./solution.js'); const used = process.memoryUsage().heapUsed - start; console.log('MEMORY_USAGE:' + (used/1024/1024).toFixed(2));" < !input! > temp_output_with_memory
     set end_time=!time!
+    
+    findstr /v "MEMORY_USAGE:" temp_output_with_memory > temp_output
+    findstr /i "MEMORY_USAGE:" temp_output_with_memory > memory_usage
+    set /p memory_mb=<memory_usage
+    set memory_mb=!memory_mb:MEMORY_USAGE:=!
+    
     type temp_output
     echo.
     
@@ -42,13 +48,15 @@ for %%f in (test-cases\input*.txt) do (
     set /a total+=1
     
     echo Runtime: !runtime! ms
-    echo Memory Usage: ~13 MB
+    echo Memory Usage: !memory_mb! MB
     echo ========================================
     echo.
     set /a testnum+=1
 )
 
 if exist temp_output del temp_output
+if exist temp_output_with_memory del temp_output_with_memory
+if exist memory_usage del memory_usage
 echo Final Results: !passed!/!total! test cases passed
 if !passed! == !total! (
     echo All tests passed successfully!
