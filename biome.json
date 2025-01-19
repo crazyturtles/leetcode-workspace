@@ -18,7 +18,8 @@
       "recommended": true,
       "style": {
         "noCommaOperator": "off",
-        "noParameterAssign": "off"
+        "noParameterAssign": "off",
+        "noVar": "off"
       }
     }
   }
